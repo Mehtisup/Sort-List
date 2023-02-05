@@ -1,15 +1,16 @@
 <script>
 function sortFunction() {
-    var list, i, sweetching, b, shouldSwitch;
+    var i, list, switching, b, shouldSwitch;
 
     list = document.getElementById("list");
-    sweetching = true;
+    switching = true;
 
-    while (sweetching) {
-        sweetching = false;
-        b = document.getElementsByClassName("link");
+    while (switching) {
+        switching = false;
 
-        for (i = 0 ; i < (b.length - 1); i++) {
+        b = list.getElementsByTagName("LI");
+
+        for (i = 0 ; i < (b.length - 1) ; i++) {
             shouldSwitch = false;
 
             if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
@@ -19,7 +20,7 @@ function sortFunction() {
         }
         if (shouldSwitch) {
             b[i].parentNode.insertBefore(b[i + 1], b[i]);
-            sweetching = true;
+            switching = true;
         }
     }
 }
